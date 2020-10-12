@@ -2,6 +2,7 @@ import writeStateEntryToElement from "state-util/src/write-state-entry-to-elemen
 
 const StateBridge = ({
   children = null,
+  debug = false,
   store,
   element = document.body,
   keys,
@@ -16,7 +17,7 @@ const StateBridge = ({
         typeof value === "string" ||
         typeof value === "number"
       ) {
-        writeStateEntryToElement({ debug: true, element, key, value });
+        writeStateEntryToElement({ debug, element, key, value });
       } else {
         element.setAttribute("data-state-" + key, null);
       }
